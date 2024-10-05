@@ -2,7 +2,7 @@
 Read Invoice Fixtures
     ${json_data}=    Get File    ${EXECDIR}/invoice-fixtures.json
     ${json}=    evaluate    json.loads('''${json_data}''')    json
-    [return]  ${json}
+    RETURN  ${json}
 
 Initialize Test Data
     ${json}=    Read Invoice Fixtures
@@ -12,7 +12,7 @@ Get Dummy Invoice
     [Arguments]    ${invoice_name}
     ${invoice}=    Get From Dictionary     ${Invoices}     ${invoice_name}
     Randomize Invoice Id    ${invoice}
-    [return]    ${invoice}
+    RETURN    ${invoice}
     
 Randomize Invoice Id
     [Arguments]    ${invoice}
@@ -26,4 +26,4 @@ Update Invoice Id
 Get Invoice Id
     [Arguments]    ${invoice}
     ${invoice_id}=   Convert To String   ${invoice["id"]}
-    [return]  ${invoice_id}
+    RETURN  ${invoice_id}

@@ -1,6 +1,6 @@
 *** Keywords ***
 Configure Selenium
-     Set Selenium Speed    .5 Seconds
+    Set Selenium Speed    .5 Seconds
 
 Navigate To Homepage
     Open Browser    ${SiteUrl}    ${BROWSER}
@@ -12,4 +12,4 @@ Exit Selenium
     
 Generate Random Number
     ${random_number}    Evaluate    random.randint(1000000, 9999999)   random
-    [return]    ${random_number}
+    RETURN    ${random_number}
