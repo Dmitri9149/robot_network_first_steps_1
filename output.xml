@@ -1,167 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-05T15:00:46.295055" rpa="false" schemaversion="5">
-<suite id="s1" name="Selenium" source="C:\Users\dmitr\robot_frameworks\selenium.robot">
-<test id="s1-t1" name="Login with correct Username and Password" line="5">
+<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-05T15:24:11.648671" rpa="false" schemaversion="5">
+<suite id="s1" name="Tour-Of" source="C:\Users\dmitr\robot_frameworks\tour-of.robot">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Initialize Test Data" owner="data">
+<kw name="Read Invoice Fixtures" owner="data">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-10-05T15:24:11.853415" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\dmitr\robot_frameworks\invoice-fixtures.json"&gt;C:\Users\dmitr\robot_frameworks\invoice-fixtures.json&lt;/a&gt;'.</msg>
+<msg time="2024-10-05T15:24:11.854447" level="INFO">${json_data} = {
+    "demo" : {
+        "company_name" : "Beaufort Fairmont, LLC",
+        "type_of_work" : "Test Automation",
+        "status" : "Past Due",
+        "amount" : "521.20",
+        "due_date" : "2019-1...</msg>
+<var>${json_data}</var>
+<arg>${EXECDIR}/invoice-fixtures.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-10-05T15:24:11.853415" elapsed="0.001032"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-05T15:24:11.854447" level="INFO">${json} = {'demo': {'company_name': 'Beaufort Fairmont, LLC', 'type_of_work': 'Test Automation', 'status': 'Past Due', 'amount': '521.20', 'due_date': '2019-12-31', 'description': 'Test Automation experts helpi...</msg>
+<var>${json}</var>
+<arg>json.loads('''${json_data}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-05T15:24:11.854447" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${json}</value>
+<status status="PASS" start="2024-10-05T15:24:11.854447" elapsed="0.000000"/>
+</return>
+<msg time="2024-10-05T15:24:11.854447" level="INFO">${json} = {'demo': {'company_name': 'Beaufort Fairmont, LLC', 'type_of_work': 'Test Automation', 'status': 'Past Due', 'amount': '521.20', 'due_date': '2019-12-31', 'description': 'Test Automation experts helpi...</msg>
+<var>${json}</var>
+<status status="PASS" start="2024-10-05T15:24:11.853415" elapsed="0.001032"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-10-05T15:24:11.855452" level="INFO">${Invoices} = {'demo': {'company_name': 'Beaufort Fairmont, LLC', 'type_of_work': 'Test Automation', 'status': 'Past Due', 'amount': '521.20', 'due_date': '2019-12-31', 'description': 'Test Automation experts helpi...</msg>
+<arg>${Invoices}</arg>
+<arg>${json}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-10-05T15:24:11.854447" elapsed="0.001005"/>
+</kw>
+<status status="PASS" start="2024-10-05T15:24:11.853415" elapsed="0.002037"/>
+</kw>
+<kw name="Configure Selenium" owner="system">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>.5 Seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2024-10-05T15:24:11.855452" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2024-10-05T15:24:11.855452" elapsed="0.001000"/>
+</kw>
+<kw name="Navigate To Homepage" owner="system">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:46.466419" level="INFO">Opening browser 'chrome' to base url 'https://the-internet.herokuapp.com/login'.</msg>
-<arg>url=https://the-internet.herokuapp.com/login</arg>
-<arg>browser=chrome</arg>
+<msg time="2024-10-05T15:24:11.856452" level="INFO">Opening browser 'Chrome' to base url 'http://inv.beaufortfairmont.com'.</msg>
+<arg>${SiteUrl}</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-05T15:00:46.466419" elapsed="3.965196"/>
+<status status="PASS" start="2024-10-05T15:24:11.856452" elapsed="9.413806"/>
 </kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-05T15:24:21.270258" elapsed="0.536347"/>
+</kw>
+<status status="PASS" start="2024-10-05T15:24:11.856452" elapsed="9.950153"/>
+</kw>
+<arg>Initialize Test Data</arg>
+<arg>Configure Selenium</arg>
+<arg>Navigate To Homepage</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2024-10-05T15:24:11.852899" elapsed="9.953706"/>
+</kw>
+<test id="s1-t1" name="Create An Invoice" line="16">
+<kw name="Get Dummy Invoice" owner="data">
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2024-10-05T15:24:21.808622" level="INFO">${invoice} = {'company_name': 'Beaufort Fairmont, LLC', 'type_of_work': 'Test Automation', 'status': 'Past Due', 'amount': '521.20', 'due_date': '2019-12-31', 'description': 'Test Automation experts helping us ram...</msg>
+<var>${invoice}</var>
+<arg>${Invoices}</arg>
+<arg>${invoice_name}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2024-10-05T15:24:21.808622" elapsed="0.000000"/>
+</kw>
+<kw name="Randomize Invoice Id" owner="data">
+<kw name="Generate Random Number" owner="system">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-05T15:24:21.809619" level="INFO">${random_number} = 5287786</msg>
+<var>${random_number}</var>
+<arg>random.randint(1000000, 9999999)</arg>
+<arg>random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-05T15:24:21.809619" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${random_number}</value>
+<status status="PASS" start="2024-10-05T15:24:21.809619" elapsed="0.000000"/>
+</return>
+<msg time="2024-10-05T15:24:21.809619" level="INFO">${random_number} = 5287786</msg>
+<var>${random_number}</var>
+<status status="PASS" start="2024-10-05T15:24:21.809619" elapsed="0.000000"/>
+</kw>
+<kw name="Update Invoice Id" owner="data">
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${invoice}</arg>
+<arg>id=${id}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2024-10-05T15:24:21.810620" elapsed="0.000000"/>
+</kw>
+<arg>${invoice}</arg>
+<arg>${random_number}</arg>
+<status status="PASS" start="2024-10-05T15:24:21.809619" elapsed="0.001001"/>
+</kw>
+<arg>${invoice}</arg>
+<status status="PASS" start="2024-10-05T15:24:21.808622" elapsed="0.001998"/>
+</kw>
+<return>
+<value>${invoice}</value>
+<status status="PASS" start="2024-10-05T15:24:21.810620" elapsed="0.000000"/>
+</return>
+<msg time="2024-10-05T15:24:21.810620" level="INFO">${invoice} = {'company_name': 'Beaufort Fairmont, LLC', 'type_of_work': 'Test Automation', 'status': 'Past Due', 'amount': '521.20', 'due_date': '2019-12-31', 'description': 'Test Automation experts helping us ram...</msg>
+<var>${invoice}</var>
+<arg>demo</arg>
+<status status="PASS" start="2024-10-05T15:24:21.807631" elapsed="0.002989"/>
+</kw>
+<kw name="Navigate To Add Invoice" owner="navigation">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:24:21.811617" level="INFO">Clicking element 'css:[href="#/addInvoice"]'.</msg>
+<arg>css:[href="#/addInvoice"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:24:21.811617" elapsed="1.070066"/>
+</kw>
+<status status="PASS" start="2024-10-05T15:24:21.811617" elapsed="1.070066"/>
+</kw>
+<kw name="Fill Out Invoice Details" owner="invoice-details-page">
+<kw name="Enter Invoice Number" owner="invoice-details-page">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:50.432785" level="INFO">Typing text 'tomsmith' into text field 'username'.</msg>
-<arg>username</arg>
-<arg>tomsmith</arg>
+<msg time="2024-10-05T15:24:22.883178" level="INFO">Typing text '5287786' into text field 'css:[ng-model="invoice.invoiceNo"]'.</msg>
+<arg>css:[ng-model="invoice.invoiceNo"]</arg>
+<arg>${invoice_id}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:50.432785" elapsed="0.137875"/>
+<status status="PASS" start="2024-10-05T15:24:22.883178" elapsed="1.641286"/>
 </kw>
+<arg>${invoice["id"]}</arg>
+<status status="PASS" start="2024-10-05T15:24:22.881683" elapsed="1.642781"/>
+</kw>
+<kw name="Enter Company Name" owner="invoice-details-page">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:50.571667" level="INFO">Typing text 'SuperSecretPassword!' into text field 'password'.</msg>
-<arg>password</arg>
-<arg>SuperSecretPassword!</arg>
+<msg time="2024-10-05T15:24:24.525502" level="INFO">Typing text 'Beaufort Fairmont, LLC' into text field 'css:[ng-model="invoice.companyName"]'.</msg>
+<arg>css:[ng-model="invoice.companyName"]</arg>
+<arg>${company_name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:50.571667" elapsed="0.161897"/>
+<status status="PASS" start="2024-10-05T15:24:24.525502" elapsed="1.687818"/>
 </kw>
+<arg>${invoice["company_name"]}</arg>
+<status status="PASS" start="2024-10-05T15:24:24.524464" elapsed="1.688856"/>
+</kw>
+<kw name="Enter Type of Work" owner="invoice-details-page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:24:26.214384" level="INFO">Typing text 'Test Automation' into text field 'css:[ng-model="invoice.typeOfWork"]'.</msg>
+<arg>css:[ng-model="invoice.typeOfWork"]</arg>
+<arg>${type_of_work}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:24:26.214384" elapsed="1.663406"/>
+</kw>
+<arg>${invoice["type_of_work"]}</arg>
+<status status="PASS" start="2024-10-05T15:24:26.213320" elapsed="1.664470"/>
+</kw>
+<kw name="Select Status" owner="invoice-details-page">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:24:27.878819" level="INFO">Selecting options from selection list 'css:[ng-model="invoice.status"]' by value Past Due.</msg>
+<arg>css:[ng-model="invoice.status"]</arg>
+<arg>${status}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2024-10-05T15:24:27.878819" elapsed="4.104991"/>
+</kw>
+<arg>${invoice["status"]}</arg>
+<status status="PASS" start="2024-10-05T15:24:27.877790" elapsed="4.106020"/>
+</kw>
+<kw name="Enter Amount" owner="invoice-details-page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:24:31.984847" level="INFO">Typing text '521.20' into text field 'css:[ng-model="invoice.price"]'.</msg>
+<arg>css:[ng-model="invoice.price"]</arg>
+<arg>${amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:24:31.984847" elapsed="1.618931"/>
+</kw>
+<arg>${invoice["amount"]}</arg>
+<status status="PASS" start="2024-10-05T15:24:31.983810" elapsed="1.621002"/>
+</kw>
+<kw name="Enter Due Date" owner="invoice-details-page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:24:33.605811" level="INFO">Typing text '2019-12-31' into text field 'css:[ng-model="invoice.dueDate"]'.</msg>
+<arg>css:[ng-model="invoice.dueDate"]</arg>
+<arg>${due_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:24:33.604812" elapsed="1.639874"/>
+</kw>
+<arg>${invoice["due_date"]}</arg>
+<status status="PASS" start="2024-10-05T15:24:33.604812" elapsed="1.639874"/>
+</kw>
+<kw name="Enter Description" owner="invoice-details-page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:24:35.245702" level="INFO">Typing text 'Test Automation experts helping us ramp up our automation efforts.' into text field 'css:[ng-model="invoice.comment"]'.</msg>
+<arg>css:[ng-model="invoice.comment"]</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:24:35.245702" elapsed="1.863965"/>
+</kw>
+<arg>${invoice["description"]}</arg>
+<status status="PASS" start="2024-10-05T15:24:35.244686" elapsed="1.865495"/>
+</kw>
+<arg>${invoice}</arg>
+<status status="PASS" start="2024-10-05T15:24:22.881683" elapsed="14.228498"/>
+</kw>
+<kw name="Submit Invoice Form" owner="invoice-details-page">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:50.733564" level="INFO">Clicking button 'class:radius'.</msg>
-<arg>class:radius</arg>
+<msg time="2024-10-05T15:24:37.111764" level="INFO">Clicking button 'createButton'.</msg>
+<arg>createButton</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:50.733564" elapsed="0.383929"/>
+<status status="PASS" start="2024-10-05T15:24:37.110723" elapsed="2.082687"/>
 </kw>
-<kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:51.144663" level="INFO">Element 'id=flash' contains text 'You logged into a secure area!'.</msg>
-<arg>id=flash</arg>
-<arg>You logged into a secure area!</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2024-10-05T15:00:51.117493" elapsed="0.027170"/>
+<status status="PASS" start="2024-10-05T15:24:37.110723" elapsed="2.082687"/>
 </kw>
+<kw name="Get Invoice Id" owner="data">
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-10-05T15:24:39.194465" level="INFO">${invoice_id} = 5287786</msg>
+<var>${invoice_id}</var>
+<arg>${invoice["id"]}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-10-05T15:24:39.194465" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${invoice_id}</value>
+<status status="PASS" start="2024-10-05T15:24:39.195451" elapsed="0.000000"/>
+</return>
+<msg time="2024-10-05T15:24:39.195451" level="INFO">${invoice_id} = 5287786</msg>
+<var>${invoice_id}</var>
+<arg>${invoice}</arg>
+<status status="PASS" start="2024-10-05T15:24:39.193410" elapsed="0.002041"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:24:40.214688" level="INFO">Current page contains text '5287786'.</msg>
+<arg>${invoice_id}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-10-05T15:24:39.195451" elapsed="1.019237"/>
+</kw>
+<kw name="Open Invoice" owner="navigation">
 <kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:51.145773" level="INFO">Clicking link 'Logout'.</msg>
-<arg>Logout</arg>
+<msg time="2024-10-05T15:24:40.216671" level="INFO">Clicking link 'css:#invoiceNo_5287786 &gt; a'.</msg>
+<arg>css:#invoiceNo_${id} &gt; a</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:51.145773" elapsed="0.342929"/>
+<status status="PASS" start="2024-10-05T15:24:40.216671" elapsed="1.577598"/>
+</kw>
+<arg>${invoice_id}</arg>
+<status status="PASS" start="2024-10-05T15:24:40.215635" elapsed="1.578634"/>
+</kw>
+<status status="PASS" start="2024-10-05T15:24:21.806605" elapsed="19.988180"/>
+</test>
+<kw name="Exit Selenium" owner="system" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:24:42.419290" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-10-05T15:24:41.796523" elapsed="0.623771"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-10-05T15:00:51.488702" elapsed="2.131437"/>
+<status status="PASS" start="2024-10-05T15:24:42.420294" elapsed="2.599587"/>
 </kw>
-<status status="PASS" start="2024-10-05T15:00:46.463961" elapsed="7.156178"/>
-</test>
-<test id="s1-t2" name="Add Tasks And Set To Complete" line="14">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:53.622531" level="INFO">Opening browser 'chrome' to base url 'https://todomvc.com/examples/angular/dist/browser/#'.</msg>
-<arg>url=https://todomvc.com/examples/angular/dist/browser/#</arg>
-<arg>browser=chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-05T15:00:53.622531" elapsed="2.823457"/>
+<status status="PASS" start="2024-10-05T15:24:41.796523" elapsed="3.223358"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:56.447004" level="INFO">Typing text 'Complete Robot Framework Training' into text field 'css:.new-todo'.</msg>
-<arg>css:.new-todo</arg>
-<arg>Complete Robot Framework Training</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:56.445988" elapsed="0.223462"/>
-</kw>
-<kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:56.670462" level="INFO">Sending key(s) ('RETURN',) to css:.new-todo element.</msg>
-<msg time="2024-10-05T15:00:56.961506" level="INFO">Pressing special key RETURN to element.</msg>
-<msg time="2024-10-05T15:00:56.961506" level="INFO">Releasing special key RETURN.</msg>
-<arg>css:.new-todo</arg>
-<arg>RETURN</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2024-10-05T15:00:56.669450" elapsed="0.330091"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:57.000546" level="INFO">Typing text 'Write Automated Tests' into text field 'css:.new-todo'.</msg>
-<arg>css:.new-todo</arg>
-<arg>Write Automated Tests</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:56.999541" elapsed="0.149474"/>
-</kw>
-<kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:57.149015" level="INFO">Sending key(s) ('RETURN',) to css:.new-todo element.</msg>
-<msg time="2024-10-05T15:00:57.446616" level="INFO">Pressing special key RETURN to element.</msg>
-<msg time="2024-10-05T15:00:57.446616" level="INFO">Releasing special key RETURN.</msg>
-<arg>css:.new-todo</arg>
-<arg>RETURN</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2024-10-05T15:00:57.149015" elapsed="0.304407"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:57.454528" level="INFO">Typing text 'Take a nap' into text field 'css:.new-todo'.</msg>
-<arg>css:.new-todo</arg>
-<arg>Take a nap</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:57.454528" elapsed="0.109308"/>
-</kw>
-<kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:57.564826" level="INFO">Sending key(s) ('RETURN',) to css:.new-todo element.</msg>
-<msg time="2024-10-05T15:00:57.857713" level="INFO">Pressing special key RETURN to element.</msg>
-<msg time="2024-10-05T15:00:57.857713" level="INFO">Releasing special key RETURN.</msg>
-<arg>css:.new-todo</arg>
-<arg>RETURN</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2024-10-05T15:00:57.563836" elapsed="0.306588"/>
-</kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:57.871424" level="INFO">Verifying element 'class:todo-count' contains exact text '3 items left'.</msg>
-<arg>class:todo-count</arg>
-<arg>3 items left</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-10-05T15:00:57.871424" elapsed="0.024341"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:57.896779" level="INFO">Clicking element 'xpath: //*[contains(text(), "Complete Robot Framework Training")]/../input'.</msg>
-<arg>xpath: //*[contains(text(), "Complete Robot Framework Training")]/../input</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:57.896779" elapsed="0.057999"/>
-</kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:57.955803" level="INFO">Verifying element 'class:todo-count' contains exact text '2 items left'.</msg>
-<arg>class:todo-count</arg>
-<arg>2 items left</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-10-05T15:00:57.955803" elapsed="0.016459"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:57.973270" level="INFO">Clicking element 'xpath: //*[contains(text(), "Write Automated Tests")]/../input'.</msg>
-<arg>xpath: //*[contains(text(), "Write Automated Tests")]/../input</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:57.973270" elapsed="0.052190"/>
-</kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:58.026458" level="INFO">Verifying element 'class:todo-count' contains exact text '1 item left'.</msg>
-<arg>class:todo-count</arg>
-<arg>1 item left</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-10-05T15:00:58.026458" elapsed="0.022475"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:58.048933" level="INFO">Clicking element 'xpath: //*[contains(text(), "Take a nap")]/../input'.</msg>
-<arg>xpath: //*[contains(text(), "Take a nap")]/../input</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-05T15:00:58.048933" elapsed="0.047676"/>
-</kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-10-05T15:00:58.097925" level="INFO">Verifying element 'class:todo-count' contains exact text '0 items left'.</msg>
-<arg>class:todo-count</arg>
-<arg>0 items left</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-10-05T15:00:58.096609" elapsed="0.019913"/>
-</kw>
-<status status="PASS" start="2024-10-05T15:00:53.621500" elapsed="4.495022"/>
-</test>
-<status status="PASS" start="2024-10-05T15:00:46.297041" elapsed="11.820497"/>
+<status status="PASS" start="2024-10-05T15:24:11.649673" elapsed="33.370208"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Selenium">Selenium</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tour-Of">Tour-Of</stat>
 </suite>
 </statistics>
 <errors>
