@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-05T15:13:01.817983" rpa="false" schemaversion="5">
+<suite id="s1" name="Selenium" source="C:\Users\dmitr\robot_frameworks\selenium\selenium.robot">
+<test id="s1-t1" name="Login with correct Username and Password" line="5">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:01.992386" level="INFO">Opening browser 'chrome' to base url 'https://the-internet.herokuapp.com/login'.</msg>
+<arg>url=https://the-internet.herokuapp.com/login</arg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-05T15:13:01.991350" elapsed="4.542329"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:06.534682" level="INFO">Typing text 'tomsmith' into text field 'username'.</msg>
+<arg>username</arg>
+<arg>tomsmith</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:06.533679" elapsed="0.136085"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:06.670779" level="INFO">Typing text 'SuperSecretPassword!' into text field 'password'.</msg>
+<arg>password</arg>
+<arg>SuperSecretPassword!</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:06.669764" elapsed="0.161685"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:06.831449" level="INFO">Clicking button 'class:radius'.</msg>
+<arg>class:radius</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:06.831449" elapsed="0.422864"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:07.277943" level="INFO">Element 'id=flash' contains text 'You logged into a secure area!'.</msg>
+<arg>id=flash</arg>
+<arg>You logged into a secure area!</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2024-10-05T15:13:07.254313" elapsed="0.023630"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:07.278960" level="INFO">Clicking link 'Logout'.</msg>
+<arg>Logout</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:07.278960" elapsed="0.411246"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-10-05T15:13:07.690206" elapsed="2.130334"/>
+</kw>
+<status status="PASS" start="2024-10-05T15:13:01.990819" elapsed="7.830783"/>
+</test>
+<test id="s1-t2" name="Add Tasks And Set To Complete" line="14">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:09.824496" level="INFO">Opening browser 'chrome' to base url 'https://todomvc.com/examples/angular/dist/browser/#'.</msg>
+<arg>url=https://todomvc.com/examples/angular/dist/browser/#</arg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-05T15:13:09.823952" elapsed="3.578222"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:13.403244" level="INFO">Typing text 'Complete Robot Framework Training' into text field 'css:.new-todo'.</msg>
+<arg>css:.new-todo</arg>
+<arg>Complete Robot Framework Training</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:13.402174" elapsed="0.215813"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:13.617987" level="INFO">Sending key(s) ('RETURN',) to css:.new-todo element.</msg>
+<msg time="2024-10-05T15:13:13.912996" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2024-10-05T15:13:13.912996" level="INFO">Releasing special key RETURN.</msg>
+<arg>css:.new-todo</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-10-05T15:13:13.617987" elapsed="0.333025"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:13.951012" level="INFO">Typing text 'Write Automated Tests' into text field 'css:.new-todo'.</msg>
+<arg>css:.new-todo</arg>
+<arg>Write Automated Tests</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:13.951012" elapsed="0.142137"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.094143" level="INFO">Sending key(s) ('RETURN',) to css:.new-todo element.</msg>
+<msg time="2024-10-05T15:13:14.381568" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2024-10-05T15:13:14.381568" level="INFO">Releasing special key RETURN.</msg>
+<arg>css:.new-todo</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.094143" elapsed="0.297073"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.392681" level="INFO">Typing text 'Take a nap' into text field 'css:.new-todo'.</msg>
+<arg>css:.new-todo</arg>
+<arg>Take a nap</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.392681" elapsed="0.105878"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.499618" level="INFO">Sending key(s) ('RETURN',) to css:.new-todo element.</msg>
+<msg time="2024-10-05T15:13:14.776136" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2024-10-05T15:13:14.776136" level="INFO">Releasing special key RETURN.</msg>
+<arg>css:.new-todo</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.498559" elapsed="0.289970"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.788529" level="INFO">Verifying element 'class:todo-count' contains exact text '3 items left'.</msg>
+<arg>class:todo-count</arg>
+<arg>3 items left</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.788529" elapsed="0.024655"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.813436" level="INFO">Clicking element 'xpath: //*[contains(text(), "Complete Robot Framework Training")]/../input'.</msg>
+<arg>xpath: //*[contains(text(), "Complete Robot Framework Training")]/../input</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.813436" elapsed="0.061021"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.875790" level="INFO">Verifying element 'class:todo-count' contains exact text '2 items left'.</msg>
+<arg>class:todo-count</arg>
+<arg>2 items left</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.875790" elapsed="0.018154"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.894949" level="INFO">Clicking element 'xpath: //*[contains(text(), "Write Automated Tests")]/../input'.</msg>
+<arg>xpath: //*[contains(text(), "Write Automated Tests")]/../input</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.893944" elapsed="0.049647"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.944599" level="INFO">Verifying element 'class:todo-count' contains exact text '1 item left'.</msg>
+<arg>class:todo-count</arg>
+<arg>1 item left</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.944599" elapsed="0.019602"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:14.965212" level="INFO">Clicking element 'xpath: //*[contains(text(), "Take a nap")]/../input'.</msg>
+<arg>xpath: //*[contains(text(), "Take a nap")]/../input</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-05T15:13:14.965212" elapsed="0.049693"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-10-05T15:13:15.016253" level="INFO">Verifying element 'class:todo-count' contains exact text '0 items left'.</msg>
+<arg>class:todo-count</arg>
+<arg>0 items left</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-10-05T15:13:15.014905" elapsed="0.017923"/>
+</kw>
+<status status="PASS" start="2024-10-05T15:13:09.822587" elapsed="5.210241"/>
+</test>
+<status status="PASS" start="2024-10-05T15:13:01.819988" elapsed="13.214863"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Selenium">Selenium</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
