@@ -49,7 +49,7 @@ Report:  C:\Users\dmitr\robot_frameworks\report.html
 PS C:\Users\dmitr\robot_frameworks>
 ```
 
-### Add more examples (to the heap of simple examples)
+### Add more examples
 [```selenium.robot```](https://docs.robotframework.org/docs/different_libraries/selenium)   
 ```
 PS C:\Users\dmitr\robot_frameworks> robot selenium.robot
@@ -72,6 +72,10 @@ Log:     C:\Users\dmitr\robot_frameworks\log.html
 Report:  C:\Users\dmitr\robot_frameworks\report.html
 PS C:\Users\dmitr\robot_frameworks>
 ```
+
+In folders ```chrome_browser_a``` and ```chrome_browser_b```    
+there are simple examples with ```chrome``` from    
+https://stackoverflow.com/questions/57189253/no-keyword-with-name-open-browser-found
 
 
 
