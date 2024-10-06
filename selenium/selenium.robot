@@ -1,3 +1,4 @@
+# the test is from https://docs.robotframework.org/docs/different_libraries/selenium
 *** Settings ***
 Library    SeleniumLibrary
 
