@@ -1,8 +1,9 @@
 ### First steps with Robot Framework 
 To start with Robot Frameworks I use the online tutorial: 
-[Introduction to Robot Framework](https://testautomationu.applitools.com/robot-framework-refresh/)
+[Introduction to Robot Framework](https://testautomationu.applitools.com/robot-framework-refresh/) and    
+[robot framework documentation](https://docs.robotframework.org/docs)
 
-I use terminal on Windows and VS Code. 
+I use ```terminal, Windows``` and ```VS Code```.    
 Almost all works as explained in the tutorial, 
 but I was to use in case of ```webdriver manager``` installation :    
 
